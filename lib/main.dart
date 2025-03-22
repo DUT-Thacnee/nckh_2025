@@ -78,8 +78,7 @@ class _MainScreenState extends State<MainScreen> {
 
   // Khai báo _screens là late để khởi tạo sau trong initState
   late List<Widget> _screens = [
-    // Màn hình 1: Bluetooth
-    LoginScreen(),
+    BLEScreen(), // Màn hình Bluetooth
     ManagementScreen(),
     Center(child: Text('Màn hình 3')),
     // Màn hình 4: Cài đặt và thông tin người dùng
@@ -180,6 +179,10 @@ class _MainScreenState extends State<MainScreen> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      // Điều hướng đến BLEScreen khi chọn tab Bluetooth
+      if (_selectedIndex == 0) {
+        // Nếu bạn muốn thực hiện điều gì đó đặc biệt khi vào BLEScreen, bạn có thể thêm logic ở đây
+      }
     });
   }
 
@@ -243,7 +246,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget _getAppBarTitle() {
     switch (_selectedIndex) {
       case 0:
-        return Text('Bluetooth');
+        return Text('');
       case 1:
         return Text('Quản lý');
       case 2:
